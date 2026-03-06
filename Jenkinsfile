@@ -9,7 +9,7 @@ pipeline {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/meenal933/Calculator'
+                git branch: 'main', url: 'https://github.com/meenal933/Calculator'
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
             }
         }
 
-        stage('Push to DockerHub') {
+        stage('Push Docker Image') {
             steps {
                 sh 'docker push meenal933/calculator'
             }
