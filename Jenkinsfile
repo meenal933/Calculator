@@ -14,10 +14,10 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-    steps {
-        sh 'pip3 install --break-system-packages fastapi uvicorn pytest'
-    }
-}
+            steps {
+                sh 'pip3 install --break-system-packages fastapi uvicorn pytest'
+            }
+        }
 
         stage('Run Tests') {
             steps {
@@ -43,7 +43,8 @@ pipeline {
             }
         }
     }
-post {
+
+    post {
 
         success {
             mail to: 'meenalh007@gmail.com',
@@ -56,7 +57,7 @@ The Jenkins pipeline completed SUCCESSFULLY.
 Job Name: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
 
-Check Console Output:
+Console Output:
 http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console
 
 Regards,
@@ -75,7 +76,7 @@ The Jenkins pipeline has FAILED.
 Job Name: ${env.JOB_NAME}
 Build Number: ${env.BUILD_NUMBER}
 
-Check Console Output:
+Console Output:
 http://localhost:8080/job/${env.JOB_NAME}/${env.BUILD_NUMBER}/console
 
 Regards,
