@@ -6,7 +6,7 @@ from fastapi.responses import FileResponse
 
 app = FastAPI()
 
-# Allow CORS for frontend interaction
+# Allow CORS for frontend-interaction
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
