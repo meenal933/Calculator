@@ -7,7 +7,7 @@
         state: present
 
     - name: Pull Docker Image
-      command: docker pull parvg/scientific-calculator
+      command: docker pull meenal933/scientific_calculator
 
     - name: Stop Existing Containers
       command: docker stop sci-calc || true
@@ -18,4 +18,4 @@
       ignore_errors: true
 
     - name: Run Container
-      command: docker run -d --name sci-calc -p 8000:8000 parvg/scientific-calculator
+      command: docker run -d --name sci-calc -p 8000:8000 meenal933/scientific_calculator
