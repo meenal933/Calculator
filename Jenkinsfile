@@ -14,10 +14,10 @@ pipeline {
         }
 
         stage('Install Dependencies') {
-            steps {
-                sh 'pip3 install fastapi uvicorn pytest'
-            }
-        }
+    steps {
+        sh 'pip3 install --break-system-packages fastapi uvicorn pytest'
+    }
+}
 
         stage('Run Tests') {
             steps {
