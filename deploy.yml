@@ -3,16 +3,16 @@
   become: false
   tasks:
 
-    - name: Pull Docker Image
-      command: docker pull meenal933/calculator
+    - name: Pull latest calculator image
+      community.docker.docker_image:
+        name: meenal933/calculator
+        source: pull
 
-    - name: Stop existing container
-      command: docker stop calculator
-      ignore_errors: yes
-
-    - name: Remove old container
-      command: docker rm calculator
-      ignore_errors: yes
-
-    - name: Run Docker Container
-      command: docker run -d -p 8000:8000 --name calculator meenal933/calculator
+    - name: Run calculator container
+      community.docker.docker_container:
+        name: calculator
+        image: meenal933/calculator
+        state: started
+        ports:
+          - "8000:8000"
+        recreate: true
